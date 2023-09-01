@@ -1,3 +1,9 @@
+"""
+    Esta aplicación está destinada únicamente a fines educativos.
+    La razón principal y única por la que he desarrolado esta app
+    es porque quiero poner en práctica los conceptos aprendidos en
+    la documentación oficial de Selenium.
+"""
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
