@@ -10,15 +10,21 @@ import time
 
 EMAIL = "x@gmail.com"
 PSW = "y"
-driver = webdriver.Chrome()
+options = webdriver.ChromeOptions().add_argument("--start-maximized")
+driver = webdriver.Chrome(options=options)
+
 
 def login(user_email, usr_pwd):
     driver.get("https://prenotami.esteri.it/")
-    driver.find_element(by=By.ID, value="login-email").send_keys(user_email) 
+    driver.find_element(by=By.ID, value="login-email").send_keys(user_email)
     driver.find_element(by=By.ID, value="login-password").send_keys(usr_pwd)
     driver.find_element(by=By.CLASS_NAME, value="button.primary.g-recaptcha").click()
     return
 
+
 login(EMAIL, PSW)
-time.sleep(5)
+driver.find_element(by=By.LINK_TEXT, value="Prenota").click()
+time.sleep(4)
+driver.find_element(by=By.XPATH, value='//a[@href="/Services/Booking/791"]').click()
+time.sleep(10)
 driver.quit()
